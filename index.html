@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Sneha 💖</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: radial-gradient(circle at top, #3a1c0d, #120903);
+    color: #fff3e0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 2.8em;
+    color: #ffda9e;
+    text-shadow: 0 0 15px #ffcc7f;
+    animation: fadeIn 2s ease-in-out;
+  }
+
+  h2 {
+    color: #ffe3b8;
+    font-weight: 400;
+    animation: fadeIn 3s ease-in-out;
+  }
+
+  .photo {
+    margin: 25px auto;
+    width: 260px;
+    height: 260px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 204, 127, 0.7);
+    animation: fadeIn 3s ease-in-out;
+  }
+
+  .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .message-box {
+    max-width: 600px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px rgba(255, 204, 127, 0.4);
+    font-size: 1.1em;
+    line-height: 1.7;
+    animation: fadeInUp 2s ease;
+  }
+
+  .signature {
+    font-style: italic;
+    margin-top: 20px;
+    color: #ffd9a3;
+    font-size: 1.3em;
+  }
+
+  button {
+    background: #ffcc7f;
+    color: #4b2c0c;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: all 0.3s;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    background: #ffe3b8;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(40px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  /* Floating elements */
+  .heart, .petal, .star {
+    position: fixed;
+    bottom: 0;
+    animation: floatUp linear infinite;
+    z-index: 0;
+  }
+
+  @keyframes floatUp {
+    0% {transform: translateY(0) rotate(0); opacity: 1;}
+    100% {transform: translateY(-800px) rotate(360deg); opacity: 0;}
+  }
+
+  /* Start screen */
+  #startScreen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    color: #ffda9e;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    animation: fadeIn 1s ease;
+  }
+
+  #startScreen button {
+    margin-top: 20px;
+    background: #ffcc7f;
+    color: #4b2c0c;
+    padding: 14px 30px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 0 15px #ffcc7f;
+  }
+
+  #startScreen button:hover {
+    background: #ffe3b8;
+    transform: scale(1.05);
+  }
+</style>
+</head>
+<body>
+
+<!-- Start Screen -->
+<div id="startScreen">
+  <h2>💖 A special surprise for Sneha 💖</h2>
+  <p>Click below to begin your birthday magic ✨</p>
+  <button id="startBtn">Start Surprise ✨</button>
+</div>
+
+<!-- Main Content -->
+<div id="mainContent" style="display:none;">
+  <h1>Happy 17th Birthday, Sneha Ramgirwar 💫</h1>
+  <h2>Born on December 28, 2008 🎀</h2>
+
+  <div class="photo">
+    <img src="images.jpg" alt="Sneha">
+  </div>
+
+  <div class="message-box" id="message">
+    Dear Sneha, may your 17th birthday bring you laughter, love, and endless joy. 
+    You are a light in every room you enter, and I hope your future shines even brighter. 🌟
+  </div>
+
+  <div class="message-box">
+    I know I hurt you and I cannot deny that I pushed you away when you were the one I needed most.
+    At that time I was lost in my own pain and I did not realize what I was doing.
+    But now I see it so clearly — you mean so much to me and I do not want to let you go again.
+    I am not asking you to forget the past or forgive me instantly,
+    I just want you to know that my feelings for you are real and they have not changed.
+    Even if right now you do not want me in your life, I will still wait for you because you are worth waiting for.
+    I would rather wait with hope than give up on the one person who makes me feel alive.
+    No matter how long it takes, I will be here.
+  </div>
+
+  <div class="signature">With love, Siva ❤</div>
+</div>
+
+<!-- Music -->
+<audio id="bgAudio" loop>
+  <source src="golden_browine.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const startBtn = document.getElementById('startBtn');
+  const startScreen = document.getElementById('startScreen');
+  const mainContent = document.getElementById('mainContent');
+  const audio = document.getElementById('bgAudio');
+
+  startBtn.addEventListener('click', () => {
+    startScreen.style.display = 'none';
+    mainContent.style.display = 'block';
+    audio.play();
+    createMagic();
+  });
+
+  function createMagic() {
+    setInterval(() => {
+      createHeart();
+      createPetal();
+      createStar();
+    }, 500);
+  }
+
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.textContent = '❤';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+    heart.style.animationDuration = Math.random() * 3 + 4 + 's';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 7000);
+  }
+
+  function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.textContent = '🌸';
+    petal.style.left = Math.random() * 100 + 'vw';
+    petal.style.fontSize = Math.random() * 18 + 12 + 'px';
+    petal.style.animationDuration = Math.random() * 3 + 4 + 's';
+    document.body.appendChild(petal);
+    setTimeout(() => petal.remove(), 7000);
+  }
+
+  function createStar() {
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.textContent = '✨';
+    star.style.left = Math.random() * 100 + 'vw';
+    star.style.fontSize = Math.random() * 18 + 12 + 'px';
+    star.style.animationDuration = Math.random() * 3 + 4 + 's';
+    document.body.appendChild(star);
+    setTimeout(() => star.remove(), 7000);
+  }
+</script>
+
+</body>
+</html>
